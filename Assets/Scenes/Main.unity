@@ -800,11 +800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768a5c3b8cf64c49a16e5598c7e37287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _platform: {fileID: 829751729542901608, guid: fbd055af61439154b97861a3ff558003, type: 3}
-  _poolSize: 25
-  _yMin: 1
-  _yMax: 2
-  _xMultiplier: 2
+  _config: {fileID: 11400000, guid: 72976d9f012ee914f8d0430923f2de8f, type: 2}
 --- !u!4 &2124069509
 Transform:
   m_ObjectHideFlags: 0
