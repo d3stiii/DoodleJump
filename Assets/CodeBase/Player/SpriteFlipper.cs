@@ -10,6 +10,9 @@ namespace CodeBase.Player
         private IInputService _inputService;
 
         private void Update() =>
+            Flip();
+
+        private void Flip() =>
             _spriteRenderer.flipX = _inputService.MovementAxis.x switch
             {
                 < 0 => false,
@@ -17,7 +20,7 @@ namespace CodeBase.Player
                 _ => _spriteRenderer.flipX
             };
 
-        public void Construct(IInputService inputService) => 
+        public void Construct(IInputService inputService) =>
             _inputService = inputService;
     }
 }

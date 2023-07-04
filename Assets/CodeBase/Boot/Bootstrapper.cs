@@ -26,8 +26,8 @@ namespace CodeBase.Boot
         {
             var inputService = ConstructInputService();
             var player = ConstructPlayer(inputService);
-            _platformSpawner.Construct(player);
             ConstructPoints(player);
+            _platformSpawner.Construct(player);
             _camera.Construct(player);
             _hud.Construct(player.GetComponent<PlayerScore>());
         }
@@ -50,7 +50,8 @@ namespace CodeBase.Boot
         private void ConstructPoints(Transform player)
         {
             _losePoint.Construct(player);
-            foreach (var sidePoint in _sidePoints) sidePoint.Construct(player);
+            foreach (var sidePoint in _sidePoints)
+                sidePoint.Construct(player);
         }
     }
 }
