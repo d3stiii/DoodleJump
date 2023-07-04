@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CodeBase.StaticData;
+using CodeBase.StaticData.World;
 using UnityEngine;
 
 namespace CodeBase.Platforms

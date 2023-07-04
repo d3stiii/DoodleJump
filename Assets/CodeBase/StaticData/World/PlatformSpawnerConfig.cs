@@ -1,7 +1,7 @@
 ﻿using CodeBase.Platforms;
 using UnityEngine;
 
-namespace CodeBase.StaticData
+namespace CodeBase.StaticData.World
 {
     [CreateAssetMenu(menuName = "World/Platform Spawner Config", fileName = "Platform Spawner Config")]
     public class PlatformSpawnerConfig : ScriptableObject

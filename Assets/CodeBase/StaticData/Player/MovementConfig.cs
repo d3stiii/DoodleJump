@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CodeBase.StaticData
+namespace CodeBase.StaticData.Player
 {
     [CreateAssetMenu(menuName = "Player/Movement Config", fileName = "MovementConfig")]
     public class MovementConfig : ScriptableObject

@@ -1,6 +1,6 @@
 ﻿using System;
 using CodeBase.Services.Input;
-using CodeBase.StaticData;
+using CodeBase.StaticData.Player;
 using UnityEngine;
 
 namespace CodeBase.Player
@@ -28,6 +28,12 @@ namespace CodeBase.Player
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _movementConfig.JumpForce);
             OnJump?.Invoke();
+        }
+
+        public void StopMovement()
+        {
+            _rigidbody2D.velocity = Vector2.zero;
+            _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 }

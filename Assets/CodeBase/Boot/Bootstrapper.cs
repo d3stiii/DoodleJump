@@ -4,8 +4,10 @@ using CodeBase.Platforms;
 using CodeBase.Player;
 using CodeBase.Points;
 using CodeBase.Services.Input;
+using CodeBase.Services.UI;
 using CodeBase.Sounds;
 using CodeBase.UI;
+using CodeBase.UI.Windows;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -26,7 +28,8 @@ namespace CodeBase.Boot
         {
             var inputService = ConstructInputService();
             var player = ConstructPlayer(inputService);
-            ConstructPoints(player);
+            var windowService = new WindowService(_hud.transform, new WindowProvider());
+            ConstructPoints(player, windowService);
             _platformSpawner.Construct(player);
             _camera.Construct(player);
             _hud.Construct(player.GetComponent<PlayerScore>());
@@ -47,9 +50,12 @@ namespace CodeBase.Boot
             return player.transform;
         }
 
-        private void ConstructPoints(Transform player)
+        private void ConstructPoints(Transform player, WindowService windowService)
         {
             _losePoint.Construct(player);
+            _losePoint.OnLose += () => windowService.Open(WindowId.GameOver);
+            _losePoint.OnLose += player.GetComponent<PlayerMovement>().StopMovement;
+            
             foreach (var sidePoint in _sidePoints)
                 sidePoint.Construct(player);
         }
